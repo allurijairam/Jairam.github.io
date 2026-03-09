@@ -1,0 +1,113 @@
+.live-demo-section {
+  padding-top: 48px;
+}
+
+.live-demo-header {
+  margin-bottom: 20px;
+}
+
+.live-demo-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  margin: 0;
+}
+
+.hero-section {
+  padding-top: 24px;
+  padding-bottom: 48px;
+}
+
+.hero-name {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 8px;
+}
+
+.hero-title {
+  font-size: 1.125rem;
+  color: var(--accent);
+  margin: 0 0 12px;
+  font-weight: 500;
+}
+
+.hero-tagline {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin: 0;
+  line-height: 1.65;
+}
+
+.about-card {
+  max-width: 720px;
+}
+
+.about-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 8px 14px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.skill-tag-sm {
+  padding: 4px 10px;
+  font-size: 0.8125rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.project-card-desc {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  margin: 0;
+  flex: 1;
+}
+
+.project-card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-card-btn {
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .hero-name {
+    font-size: 1.75rem;
+  }
+}
