@@ -96,7 +96,7 @@ export default function Chat() {
       <div className="chat-messages" ref={scrollRef}>
         {messages.length === 0 && (
           <div className="chat-placeholder">
-            Ask anything — e.g. “What is plasma etching?”
+            Ask a question about me
           </div>
         )}
         {messages.map((msg, i) => (
@@ -119,7 +119,7 @@ export default function Chat() {
         <input
           type="text"
           className="chat-input"
-          placeholder="Message RAG..."
+          placeholder="Ask a question about me"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
@@ -141,7 +141,7 @@ export default function Chat() {
           disabled={loading || uploading}
           aria-label="Upload PDF"
         >
-          {uploading ? "…" : "Upload PDF"}
+          {uploading ? "…" : "Upload PDF Document"}
         </button>
         <button
           type="button"

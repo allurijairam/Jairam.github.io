@@ -17,12 +17,6 @@ export default function Layout({ children }) {
               </Link>
             </li>
             <li>
-              <Link to="/projects/rag-system">RAG Project</Link>
-            </li>
-            <li>
-              <Link to="/upload">Upload</Link>
-            </li>
-            <li>
               <Link to="/resume">Resume</Link>
             </li>
           </ul>

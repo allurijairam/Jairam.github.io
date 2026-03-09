@@ -38,9 +38,8 @@ const EXPERIENCE = [
     location: "Richardson, USA",
     period: "May 2023 - Present",
     points: [
-      "Architected a 3D Computer Vision system using PyTorch and OpenCV, developing a custom Vision Transformer (VIT) architecture with specialized positional encodings to classify complex structural patterns.",
-      "Secured approval to file a patent covering a novel data-preprocessing technique.",
-      "Engineered a parallel processing pipeline on Azure that achieved a 10x reduction in preprocessing latency, directly enabling $10M in new business revenue through increased device throughput.",
+      "Architected a 3D Computer Vision system using PyTorch and OpenCV, developing a custom Vision Transformer (ViT) architecture with specialized positional encodings to classify complex structural patterns; I secured approval to file a patent covering a novel data-preprocessing technique.",
+      "Engineered a parallel processing pipeline on Azure that achieved a 10x reduction in preprocessing latency.",
       "Reduced Azure cloud expenditure by 80% by optimizing infrastructure, selecting high-throughput compute instances and database configurations tailored to specific workload demands.",
       "Developed and deployed Edge ML models using TensorFlow, optimizing for real-time gas concentration prediction with minimal CPU overhead on resource-constrained hardware.",
     ],
@@ -73,6 +72,16 @@ const EDUCATION = [
 ];
 
 const PROJECTS = [
+  {
+    name: "Document RAG Assistant (End-to-End Serverless RAG)",
+    points: [
+      "Built and deployed an end-to-end RAG system combining document retrieval with a large language model to generate grounded answers.",
+      "Implemented multi-query & RAG fusion for follow-up queries and ranked retrieval; session-based memory for PDFs, queries, and results; automatic cache cleanup after 10 minutes of inactivity.",
+      "Tech: LangChain, Vector Database (Chroma), AWS Bedrock, Python, Flask.",
+      "GitHub: github.com/allurijairam/rag_lamda_app",
+    ],
+    repoUrl: "https://github.com/allurijairam/rag_lamda_app",
+  },
   {
     name: "Custom GPT-2 LLM From Scratch",
     points: [
@@ -111,7 +120,7 @@ function boldMetrics(text) {
 
 export default function Resume() {
   const handleDownload = () => {
-    const pdfUrl = "/resume.pdf";
+    const pdfUrl = "/Jairam_Alluri_resume.pdf";
     window.open(pdfUrl, "_blank");
   };
 
@@ -143,24 +152,6 @@ export default function Resume() {
                   LinkedIn
                 </a>
               </p>
-            </div>
-          </section>
-
-          <section className="resume-section">
-            <h2 className="resume-h2">Skills</h2>
-            <div className="card">
-              <p className="resume-skills-label">Languages:</p>
-              <ul className="resume-list resume-skills">
-                {SKILLS.languages.map((s, i) => (
-                  <li key={i}>{s}</li>
-                ))}
-              </ul>
-              <p className="resume-skills-label">Technologies &amp; Tools:</p>
-              <ul className="resume-list resume-skills">
-                {SKILLS.technologies.map((s, i) => (
-                  <li key={i}>{s}</li>
-                ))}
-              </ul>
             </div>
           </section>
 
@@ -211,7 +202,7 @@ export default function Resume() {
                 <ul className="resume-list">
                   {proj.points.map((point, j) => (
                     <li key={j}>
-                      {point.startsWith("Blog post:") ? (
+                      {point.startsWith("Blog post:") && proj.blogUrl ? (
                         <>
                           Blog post:{" "}
                           <a
@@ -222,6 +213,17 @@ export default function Resume() {
                             {point.replace(/^Blog post:\s*/, "")}
                           </a>
                         </>
+                      ) : point.startsWith("GitHub:") && proj.repoUrl ? (
+                        <>
+                          GitHub:{" "}
+                          <a
+                            href={proj.repoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {point.replace(/^GitHub:\s*/, "")}
+                          </a>
+                        </>
                       ) : (
                         boldMetrics(point)
                       )}
@@ -230,6 +232,24 @@ export default function Resume() {
                 </ul>
               </div>
             ))}
+          </section>
+
+          <section className="resume-section">
+            <h2 className="resume-h2">Skills</h2>
+            <div className="card">
+              <p className="resume-skills-label">Languages:</p>
+              <ul className="resume-list resume-skills">
+                {SKILLS.languages.map((s, i) => (
+                  <li key={i}>{s}</li>
+                ))}
+              </ul>
+              <p className="resume-skills-label">Technologies &amp; Tools:</p>
+              <ul className="resume-list resume-skills">
+                {SKILLS.technologies.map((s, i) => (
+                  <li key={i}>{s}</li>
+                ))}
+              </ul>
+            </div>
           </section>
         </div>
       </div>
