@@ -18,12 +18,14 @@ git pull origin main --rebase
 git push -u origin main
 ```
 
-## 2. Enable GitHub Pages via Actions
+## 2. Enable GitHub Pages via Actions (required)
 
 1. Open **https://github.com/allurijairam/Jairam.github.io**
 2. Go to **Settings** → **Pages**
-3. Under **Build and deployment**, set **Source** to **GitHub Actions**
-4. Save
+3. Under **Build and deployment**, set **Source** to **GitHub Actions** (not "Deploy from a branch").
+4. Click **Save**.
+
+**If you see "error trying to load main.jsx"**: the site is serving the repo source instead of the built app. You must use **Source: GitHub Actions** so the deployed site is the built `dist/` folder, not the repo root.
 
 ## 3. Trigger deployment
 
