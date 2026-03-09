@@ -18,18 +18,27 @@ git pull origin main --rebase
 git push -u origin main
 ```
 
-## 2. Enable GitHub Pages via Actions (required)
+## 2. Use the built app (fix blank page / main.jsx error)
 
-1. Open **https://github.com/allurijairam/Jairam.github.io**
-2. Go to **Settings** → **Pages**
-3. Under **Build and deployment**, set **Source** to **GitHub Actions** (not "Deploy from a branch").
-4. Click **Save**.
+The blank page happens because Pages is serving the repo source instead of the built app. Use **Option A** (easiest):
 
-**If you see "error trying to load main.jsx"**: the site is serving the repo source instead of the built app. You must use **Source: GitHub Actions** so the deployed site is the built `dist/` folder, not the repo root.
+### Option A – Deploy from gh-pages branch (recommended)
+
+1. Push your code to `main`. The workflow **Build and push to gh-pages** will run and put the built site on branch `gh-pages`.
+2. Open **https://github.com/allurijairam/Jairam.github.io** → **Settings** → **Pages**.
+3. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+4. **Branch**: choose **gh-pages**, **Folder**: **/ (root)**.
+5. Click **Save**. Wait 1–2 minutes, then open your site again.
+
+### Option B – GitHub Actions as source
+
+1. In **Settings** → **Pages**, set **Source** to **GitHub Actions**.
+2. Each push to `main` runs **Deploy to GitHub Pages** and updates the site.
 
 ## 3. Trigger deployment
 
-- The first push to `main` will run the workflow. If you already pushed before enabling Pages, run the workflow once: **Actions** → **Deploy to GitHub Pages** → **Run workflow** (branch: main).
+- Push to `main` (Option A: updates `gh-pages`; Option B: runs the deploy workflow).
+- Or run manually: **Actions** → pick the workflow → **Run workflow** (branch: main).
 
 ## 4. Your site URL
 
