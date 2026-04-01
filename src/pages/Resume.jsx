@@ -3,31 +3,32 @@ import "./Resume.css";
 const CONTACT = {
   name: "Jairam Alluri",
   role: "Machine Learning Engineer",
-  location: "Dallas, Texas 75013",
-  phone: "(469)-237-1808",
+  location: "Dallas, TX 75013",
+  phone: "(469) 237-1808",
   email: "allurijairam@gmail.com",
   linkedin: "https://www.linkedin.com/in/jairam-alluri-23a624172/",
+  website: "allurijairam.github.io/Jairam.github.io",
+  websiteUrl: "https://allurijairam.github.io/Jairam.github.io",
 };
+
+const SUMMARY =
+  "Machine Learning Engineer with 4+ years of production experience in computer vision, NLP, and LLM systems. Reduced Azure infrastructure costs by 80% and preprocessing latency by 10× at Honeywell; holds a pending USPTO patent for a novel 3D vision preprocessing technique. Built a GPT-2 transformer from scratch in PyTorch and deployed a production RAG pipeline on AWS Bedrock. Focused on LLM systems, RAG architecture, and efficient model deployment.";
 
 const SKILLS = {
   languages: ["Python", "SQL"],
-  technologies: [
-    "PyTorch",
-    "TensorFlow",
-    "Azure",
-    "AWS",
-    "EC2",
-    "LLMs",
-    "Transformers",
-    "OpenCV",
-    "Computer Vision",
-    "NLP",
-    "Time Series",
-    "Edge ML",
-    "Vector Databases",
-    "Docker",
-    "Flask",
-    "Scikit-learn",
+  mlAi: [
+    "PyTorch", "TensorFlow", "Transformers (BERT/ViT/LLaMA/GPT-2)", "YOLO",
+    "OpenCV", "Scikit-learn", "LangChain", "RAG", "Multi-Query Retrieval",
+    "RAG Fusion", "Embeddings", "Semantic Search", "Vector Databases (ChromaDB)",
+    "NLP", "Time Series", "Edge ML",
+  ],
+  mlops: [
+    "Docker", "REST API", "Flask", "MLflow", "CI/CD",
+    "AWS (EC2, Bedrock, S3)", "Azure (Auto-scaling, Spot Instances)",
+  ],
+  techniques: [
+    "Feature Engineering", "Model Quantization", "Seq2Seq", "Attention Mechanisms",
+    "Positional Encodings", "Custom Tokenization", "Model Monitoring", "Experiment Tracking",
   ],
 };
 
@@ -35,70 +36,77 @@ const EXPERIENCE = [
   {
     role: "Machine Learning Engineer",
     company: "Honeywell",
-    location: "Richardson, USA",
-    period: "May 2023 - Present",
+    location: "Richardson, TX",
+    period: "May 2023 – Present",
     points: [
-      "Architected a 3D Computer Vision system using PyTorch and OpenCV, developing a custom Vision Transformer (ViT) architecture with specialized positional encodings to classify complex structural patterns; I secured approval to file a patent covering a novel data-preprocessing technique.",
-      "Engineered a parallel processing pipeline on Azure that achieved a 10x reduction in preprocessing latency.",
-      "Reduced Azure cloud expenditure by 80% by optimizing infrastructure, selecting high-throughput compute instances and database configurations tailored to specific workload demands.",
-      "Developed and deployed Edge ML models using TensorFlow, optimizing for real-time gas concentration prediction with minimal CPU overhead on resource-constrained hardware.",
+      "Developed a 3D Computer Vision system using PyTorch and OpenCV with a custom Vision Transformer (ViT) and specialized positional encodings for structural pattern classification; the data-preprocessing technique is pending USPTO patent.",
+      "Reduced preprocessing latency by 10× by re-architecting the Azure pipeline for parallel execution, enabling real-time inference on production workloads.",
+      "Reduced Azure cloud expenditure by 80% through workload-specific instance selection, database configuration tuning, and migrating batch jobs to spot instances.",
+      "Developed and deployed TensorFlow Edge ML models for real-time gas concentration prediction on resource-constrained embedded hardware with minimal CPU overhead.",
     ],
   },
   {
     role: "Machine Learning Engineer",
     company: "Straive",
     location: "Chennai, India",
-    period: "June 2021 - August 2022",
+    period: "June 2021 – August 2022",
     points: [
-      "Architected a large-scale Deep Learning OCR system for automated text extraction from PDFs using PyTorch and Computer Vision, reducing operational costs per document by 90%.",
-      "Engineered a scalable, low-latency Object Detection and Segmentation system (YOLO/Mask R-CNN) that automated data labeling, slashing manual annotation time and reducing team overhead by 70%.",
-      "Developed a production-grade NLP Pipeline for customer service automation, leveraging Transformers to prioritize urgent queries and improve resolution speed by 70%.",
-      "Optimized Azure Cloud Infrastructure by implementing auto-scaling and spot instances, effectively reducing the department's monthly cloud expenditure by 80%.",
+      "Built a PyTorch deep learning OCR pipeline for automated PDF text extraction, reducing per-document operational cost by 90% and eliminating the manual extraction workflow.",
+      "Deployed a YOLO-based object detection system to automate data labeling, cutting manual annotation time by 70% across the team.",
+      "Built a Transformer-based NLP triage pipeline to classify and prioritize customer service queries by urgency, improving resolution speed by 70%.",
+      "Reduced monthly Azure cloud expenditure by 80% by migrating infrastructure to auto-scaling groups and spot instances.",
     ],
   },
 ];
 
 const EDUCATION = [
   {
-    degree: "M.S. in Business Analytics (Data Science Cohort)",
+    degree: "M.S. in Business Analytics – Data Science Cohort",
     school: "The University of Texas at Dallas",
-    period: "August 2022 - May 2024",
+    location: "Richardson, TX",
+    period: "Aug 2022 – May 2024",
     points: [
-      "GPA: 3.91",
-      "Honors & Scholarship(s): Dean's Excellence New Student Cohort Scholarship for exceptional academic excellence.",
-      "Achievements: Ranked #1 in the AI/ML and Statistics courses.",
+      "GPA: 3.91/4.0 | Dean's Excellence New Student Cohort Scholarship",
+      "Ranked #1 in AI/ML and Statistics courses; relevant coursework: Machine Learning, Deep Learning, Statistical Modeling, Natural Language Processing",
     ],
   },
 ];
 
+const PATENTS = [
+  "Patent Pending (USPTO) — Novel data-preprocessing technique for 3D structural pattern classification in industrial computer vision systems, Honeywell International, 2024.",
+  "Dean's Excellence Scholarship, University of Texas at Dallas, 2022 — awarded for exceptional academic excellence at entry.",
+];
+
 const PROJECTS = [
   {
-    name: "Document RAG Assistant (End-to-End Serverless RAG)",
+    name: "Academic Knowledge Assistant – Hybrid RAG Pipeline",
+    tech: "LangChain, ChromaDB, BM25, AWS Bedrock, Flask, Docker, Python",
     points: [
-      "Built and deployed an end-to-end RAG system combining document retrieval with a large language model to generate grounded answers.",
-      "Implemented multi-query & RAG fusion for follow-up queries and ranked retrieval; session-based memory for PDFs, queries, and results; automatic cache cleanup after 10 minutes of inactivity.",
-      "Tech: LangChain, Vector Database (Chroma), AWS Bedrock, Python, Flask.",
+      "Built a domain-specific Q&A system for academic content — students upload course notes, textbooks, and lecture PDFs and ask natural language questions, getting grounded answers with source references instead of generic LLM responses.",
+      "Implemented a hybrid retrieval layer combining ChromaDB (dense vector search) with BM25 (sparse keyword search), then fused results using Reciprocal Rank Fusion (RRF) — significantly improving recall on technical terminology and exact-match queries where pure semantic search fails.",
+      "Added Multi-Query Retrieval to decompose complex multi-part questions into sub-queries, improving answer completeness on questions that span multiple document sections.",
+      "Designed session memory with TTL-based caching (10-min expiry) to maintain conversation context across follow-up questions while automatically purging user data on session end.",
       "GitHub: github.com/allurijairam/rag_lamda_app",
     ],
     repoUrl: "https://github.com/allurijairam/rag_lamda_app",
   },
   {
-    name: "Custom GPT-2 LLM From Scratch",
+    name: "GPT-2 Language Model Built from Scratch",
+    tech: "PyTorch, Custom Tokenizer, Transformer Architecture",
     points: [
-      "Developed a Custom GPT-2 LLM: Engineered a decoder-only Large Language Model from the ground up using PyTorch, implementing Masked Multi-Head Attention and Feed-Forward Networks for autonomous text generation.",
-      "Engineered Core LLM Components: Built and integrated Sinusoidal Positional Encodings and Layer Normalization to manage sequence dependencies and ensure training stability across deep transformer blocks.",
-      "Optimized Training Pipeline: Developed a custom character-level tokenizer and implemented Residual Connections to improve gradient flow, training the model on specialized datasets to achieve coherent linguistic outputs.",
+      "Implemented the complete GPT-2 decoder-only architecture from scratch in PyTorch: Masked Multi-Head Self-Attention, Feed-Forward Networks, Sinusoidal Positional Encodings, Layer Normalization, and Residual Connections — no HuggingFace or external transformer libraries used.",
+      "Built a character-level tokenizer from scratch and tuned training stability using Residual Connections and gradient clipping across deep transformer blocks.",
       "Blog post: medium.com/@allurijairam/gpt-2-from-scratch-40efde46db2d",
     ],
     blogUrl: "https://medium.com/@allurijairam/gpt-2-from-scratch-40efde46db2d",
   },
   {
-    name: "Deep Learning-Based Autocorrect System",
+    name: "Deep Learning Autocorrect System",
+    tech: "PyTorch, Seq2Seq, FastText, 1D-CNN, Flask",
     points: [
-      "Developed a Seq2Seq Encoder-Decoder model using an Attention Mechanism and 1D-CNN layers for real-time text correction.",
-      "Engineered a custom NLP pipeline leveraging FastText embeddings and advanced tokenization to improve semantic accuracy.",
-      "Optimized performance through rigorous error analysis and iterative experimentation to handle diverse linguistic scenarios.",
-      "Deployed a real-time web application using Flask to demonstrate end-to-end model inference.",
+      "Built a Seq2Seq Encoder-Decoder model with Attention and 1D-CNN layers for real-time sentence-level text correction, handling errors that traditional spell-checkers miss.",
+      "Used FastText embeddings to improve generalization on rare and misspelled inputs compared to one-hot encoding baselines.",
+      "Deployed full inference pipeline as a Flask web application with end-to-end real-time correction.",
       "Blog post: medium.com/@allurijairam/sentence-correction-using-deep-learning-333a5ba6f89f",
     ],
     blogUrl: "https://medium.com/@allurijairam/sentence-correction-using-deep-learning-333a5ba6f89f",
@@ -134,6 +142,13 @@ export default function Resume() {
         </header>
 
         <div className="resume-content">
+          <section className="resume-section">
+            <h2 className="resume-h2">Summary</h2>
+            <div className="card">
+              <p className="resume-summary">{boldMetrics(SUMMARY)}</p>
+            </div>
+          </section>
+
           <section className="resume-section resume-contact">
             <h2 className="resume-h2">Contact</h2>
             <div className="card resume-contact-card">
@@ -149,6 +164,11 @@ export default function Resume() {
               <p className="resume-contact-detail">
                 <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer">
                   LinkedIn
+                </a>
+              </p>
+              <p className="resume-contact-detail">
+                <a href={CONTACT.websiteUrl} target="_blank" rel="noopener noreferrer">
+                  {CONTACT.website}
                 </a>
               </p>
             </div>
@@ -183,7 +203,9 @@ export default function Resume() {
                   <strong>{edu.degree}</strong>
                   <span className="resume-job-period">{edu.period}</span>
                 </div>
-                <p className="resume-edu-school">{edu.school}</p>
+                <p className="resume-edu-school">
+                  {edu.school}{edu.location && `, ${edu.location}`}
+                </p>
                 <ul className="resume-list">
                   {edu.points.map((point, j) => (
                     <li key={j}>{boldMetrics(point)}</li>
@@ -194,10 +216,24 @@ export default function Resume() {
           </section>
 
           <section className="resume-section">
+            <h2 className="resume-h2">Patents &amp; Recognition</h2>
+            <div className="card">
+              <ul className="resume-list">
+                {PATENTS.map((item, i) => (
+                  <li key={i}>{boldMetrics(item)}</li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          <section className="resume-section">
             <h2 className="resume-h2">Project Work</h2>
             {PROJECTS.map((proj, i) => (
               <div key={i} className="card resume-project">
                 <strong className="resume-project-name">{proj.name}</strong>
+                {proj.tech && (
+                  <p className="resume-project-tech">{proj.tech}</p>
+                )}
                 <ul className="resume-list">
                   {proj.points.map((point, j) => (
                     <li key={j}>
@@ -242,9 +278,21 @@ export default function Resume() {
                   <li key={i}>{s}</li>
                 ))}
               </ul>
-              <p className="resume-skills-label">Technologies &amp; Tools:</p>
+              <p className="resume-skills-label">ML &amp; AI:</p>
               <ul className="resume-list resume-skills">
-                {SKILLS.technologies.map((s, i) => (
+                {SKILLS.mlAi.map((s, i) => (
+                  <li key={i}>{s}</li>
+                ))}
+              </ul>
+              <p className="resume-skills-label">MLOps &amp; Infra:</p>
+              <ul className="resume-list resume-skills">
+                {SKILLS.mlops.map((s, i) => (
+                  <li key={i}>{s}</li>
+                ))}
+              </ul>
+              <p className="resume-skills-label">Techniques:</p>
+              <ul className="resume-list resume-skills">
+                {SKILLS.techniques.map((s, i) => (
                   <li key={i}>{s}</li>
                 ))}
               </ul>
