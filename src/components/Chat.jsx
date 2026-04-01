@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { endpoints } from "../config/api";
 import { getOrCreateSessionId } from "../utils/sessionId";
 import "./Chat.css";
@@ -12,9 +12,6 @@ export default function Chat() {
   const scrollRef = useRef(null);
   const fileInputRef = useRef(null);
 
-  useEffect(() => {
-    scrollRef.current?.scrollTo(0, scrollRef.current.scrollHeight);
-  }, [messages, loading]);
 
   const sendMessage = async () => {
     const text = input.trim();

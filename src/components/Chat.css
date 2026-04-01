@@ -62,7 +62,7 @@
 .chat-bubble-user {
   align-self: flex-end;
   background: var(--user-bubble);
-  color: #fff;
+  color: #ffffff;
   border-bottom-right-radius: 2px;
 }
 
@@ -118,7 +118,7 @@
 .chat-input {
   flex: 1;
   padding: 10px 14px;
-  background: var(--bg-primary);
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   color: var(--text-primary);
