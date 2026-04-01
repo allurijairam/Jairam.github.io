@@ -18,10 +18,6 @@ const LIVE_DEMO_FEATURES = [
 const LIVE_DEMO_TECH = ["LangChain", "Vector Database", "AWS Bedrock", "Python"];
 
 export default function Home() {
-  const handleDownloadResume = () => {
-    window.open("/Jairam_Alluri_resume.pdf", "_blank");
-  };
-
   return (
     <>
       {/* Homepage Intro */}
@@ -34,9 +30,13 @@ export default function Home() {
           <h2 className="subsection-title">About Me</h2>
           <p className="about-me-text">{ABOUT_ME}</p>
           <div className="hero-buttons">
-            <button type="button" className="btn btn-primary" onClick={handleDownloadResume}>
+            <a
+              href="./Jairam_Alluri_Resume.pdf"
+              download="Jairam_Alluri_Resume.pdf"
+              className="btn btn-primary"
+            >
               Download Resume
-            </button>
+            </a>
             <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
               GitHub
             </a>

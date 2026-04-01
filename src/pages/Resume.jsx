@@ -119,19 +119,18 @@ function boldMetrics(text) {
 }
 
 export default function Resume() {
-  const handleDownload = () => {
-    const pdfUrl = "/Jairam_Alluri_resume.pdf";
-    window.open(pdfUrl, "_blank");
-  };
-
   return (
     <div className="resume-page">
       <div className="container">
         <header className="resume-header">
           <h1 className="resume-title">Resume</h1>
-          <button type="button" className="btn btn-primary" onClick={handleDownload}>
+          <a
+            href="./Jairam_Alluri_Resume.pdf"
+            download="Jairam_Alluri_Resume.pdf"
+            className="btn btn-primary"
+          >
             Download Resume (PDF)
-          </button>
+          </a>
         </header>
 
         <div className="resume-content">
