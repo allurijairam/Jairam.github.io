@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { endpoints } from "../config/api";
+import { getOrCreateSessionId } from "../utils/sessionId";
 import "./Upload.css";
 
 export default function Upload() {
@@ -29,6 +30,7 @@ export default function Upload() {
     try {
       const formData = new FormData();
       formData.append("pdf", file);
+      formData.append("session_id", getOrCreateSessionId());
 
       const xhr = new XMLHttpRequest();
 

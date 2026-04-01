@@ -20,20 +20,24 @@ git push -u origin main
 
 ## 2. Use the built app (fix blank page / main.jsx error)
 
-The blank page happens because Pages is serving the repo source instead of the built app. Use **Option A** (easiest):
+The blank page happens because Pages is serving the repo source instead of the built app. Use **Option A** (deploy from main):
 
-### Option A – Deploy from gh-pages branch (recommended)
+### Option A – Deploy from main (built site in dist/ folder)
 
-1. Push your code to `main`. The workflow **Build and push to gh-pages** will run and put the built site on branch `gh-pages`.
+1. Push your code to `main`. The workflow **Build and deploy to main** runs, builds the app, and commits the `dist/` folder to `main`.
 2. Open **https://github.com/allurijairam/Jairam.github.io** → **Settings** → **Pages**.
 3. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
-4. **Branch**: choose **gh-pages**, **Folder**: **/ (root)**.
-5. Click **Save**. Wait 1–2 minutes, then open your site again.
+4. **Branch**: **main**, **Folder**: **/dist** (select the `dist` folder).
+5. Click **Save**. Wait 1–2 minutes, then open your site. The built app is served from `main`’s `dist/` folder.
 
-### Option B – GitHub Actions as source
+### Option B – Deploy from gh-pages branch
 
-1. In **Settings** → **Pages**, set **Source** to **GitHub Actions**.
-2. Each push to `main` runs **Deploy to GitHub Pages** and updates the site.
+1. Push to `main`; workflow **Build and push to gh-pages** updates the `gh-pages` branch with the built site.
+2. In **Settings** → **Pages**, set **Source** to **Deploy from a branch**, **Branch**: **gh-pages**, **Folder**: **/ (root)**.
+
+### Option C – GitHub Actions as source
+
+1. In **Settings** → **Pages**, set **Source** to **GitHub Actions**. Each push to `main` runs **Deploy to GitHub Pages**.
 
 ## 3. Trigger deployment
 

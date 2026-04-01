@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { endpoints } from "../config/api";
+import { getOrCreateSessionId } from "../utils/sessionId";
 import "./Chat.css";
 
 export default function Chat() {
@@ -28,7 +29,7 @@ export default function Chat() {
       const res = await fetch(endpoints.chat(), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: text }),
+        body: JSON.stringify({ question: text, session_id: getOrCreateSessionId() }),
       });
       if (!res.ok) {
         const errText = await res.text();
@@ -76,7 +77,11 @@ export default function Chat() {
     try {
       const formData = new FormData();
       formData.append("pdf", file);
-      const res = await fetch(endpoints.upload(), { method: "POST", body: formData });
+      formData.append("session_id", getOrCreateSessionId());
+      const res = await fetch(endpoints.upload(), {
+        method: "POST",
+        body: formData,
+      });
       if (!res.ok) throw new Error(res.statusText || "Upload failed");
       setError(null);
       setMessages((prev) => [...prev, { role: "assistant", content: `Uploaded "${file.name}" successfully. You can ask questions about it.` }]);
