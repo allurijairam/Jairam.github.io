@@ -18,6 +18,7 @@ export default function App() {
           <Route path="/resume" element={<Resume />} />
         </Routes>
       </Layout>
+
     </HashRouter>
   );
 }
