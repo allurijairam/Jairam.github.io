@@ -1,25 +1,30 @@
-/* Minimal black theme – single thin white line divider */
+/* Light, Apple-inspired theme */
 :root {
-  --bg-primary: #000000;
-  --bg-secondary: #0a0a0a;
-  --bg-tertiary: #111111;
-  --bg-card: #0a0a0a;
-  --border: #333333;
-  --line: #ffffff;
-  --text-primary: #ffffff;
-  --text-secondary: #a0a0a0;
-  --text-muted: #666666;
-  --accent: #ffffff;
-  --accent-hover: #cccccc;
-  --success: #22c55e;
-  --error: #ef4444;
-  --user-bubble: #1a1a1a;
-  --assistant-bubble: #111111;
-  --radius: 0;
-  --radius-sm: 0;
-  --shadow: none;
-  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --bg-primary: #f5f5f7;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f2f2f7;
+  --bg-card: #ffffff;
+  --border: #d2d2d7;
+  --line: #d2d2d7;
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --text-muted: #86868b;
+  --accent: #0071e3;
+  --accent-hover: #0077ed;
+  --success: #34c759;
+  --error: #ff3b30;
+  --user-bubble: #0071e3;
+  --user-bubble-text: #ffffff;
+  --assistant-bubble: #f2f2f7;
+  --assistant-bubble-text: #1d1d1f;
+  --radius: 14px;
+  --radius-sm: 12px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.06);
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 }
 
 *,
@@ -39,6 +44,7 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
@@ -68,13 +74,13 @@ textarea {
 /* Layout */
 .container {
   width: 100%;
-  max-width: 900px;
+  max-width: 980px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
 .section {
-  padding: 40px 0;
+  padding: 56px 0;
   border-bottom: none;
 }
 
@@ -86,13 +92,19 @@ textarea {
   color: var(--text-primary);
 }
 
-/* Nav – black bar, thin white line underneath (full width) */
+main {
+  padding-bottom: 56px;
+}
+
+/* Nav – light blur bar with subtle divider */
 .nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--bg-primary);
-  border-bottom: 1px solid var(--line);
+  background: rgba(245, 245, 247, 0.8);
+  backdrop-filter: saturate(180%) blur(18px);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  border-bottom: 1px solid rgba(210, 210, 215, 0.7);
 }
 
 .nav-inner {
@@ -109,6 +121,7 @@ textarea {
   font-size: 1rem;
   color: var(--text-primary);
   text-decoration: none;
+  letter-spacing: -0.01em;
 }
 
 .nav-logo:hover {
@@ -145,41 +158,55 @@ textarea {
   padding: 8px 16px;
   font-size: 0.9rem;
   font-weight: 500;
-  border-radius: 0;
-  border: 1px solid var(--line);
-  transition: background 0.2s, color 0.2s;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  box-shadow: none;
 }
 
 .btn-primary {
-  background: var(--text-primary);
-  color: var(--bg-primary);
-  border-color: var(--text-primary);
+  background: var(--accent);
+  color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
 }
 
 .btn-primary:hover {
   background: var(--accent-hover);
-  color: var(--bg-primary);
-  border-color: var(--accent-hover);
+  color: #ffffff;
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.7);
   color: var(--text-primary);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(210, 210, 215, 0.9);
 }
 
 .btn-secondary:hover {
-  background: var(--bg-tertiary);
-  border-color: var(--text-muted);
+  background: #ffffff;
+  border-color: rgba(210, 210, 215, 1);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Cards – minimal, no shadow */
 .card {
   background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 0;
+  border: 1px solid rgba(210, 210, 215, 0.7);
+  border-radius: var(--radius);
   padding: 20px;
-  box-shadow: none;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Pills / tags */
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  font-size: 0.875rem;
+  border-radius: 999px;
+  background: var(--bg-tertiary);
+  border: 1px solid rgba(210, 210, 215, 0.9);
+  color: var(--text-primary);
 }
 
 /* Responsive */
@@ -189,7 +216,7 @@ textarea {
   }
 
   .section {
-    padding: 28px 0;
+    padding: 40px 0;
   }
 
   .section-title {

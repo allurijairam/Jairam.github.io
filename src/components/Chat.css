@@ -62,7 +62,7 @@
 .chat-bubble-user {
   align-self: flex-end;
   background: var(--user-bubble);
-  color: #fff;
+  color: var(--user-bubble-text, #fff);
   border-bottom-right-radius: 2px;
 }
 
@@ -70,7 +70,7 @@
   align-self: flex-start;
   background: var(--assistant-bubble);
   border: 1px solid var(--border);
-  color: var(--text-primary);
+  color: var(--assistant-bubble-text, var(--text-primary));
   border-bottom-left-radius: 2px;
 }
 
