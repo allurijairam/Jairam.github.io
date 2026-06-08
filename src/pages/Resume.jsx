@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Resume.css";
 
 const CONTACT = {
@@ -12,7 +13,7 @@ const CONTACT = {
 };
 
 const SUMMARY =
-  "Machine Learning Engineer with 4+ years of production experience in computer vision, NLP, and LLM systems. Reduced Azure infrastructure costs by 80% and preprocessing latency by 10× at Honeywell; holds a pending USPTO patent for a novel 3D vision preprocessing technique. Built a GPT-2 transformer from scratch in PyTorch and deployed a production RAG pipeline on AWS Bedrock. Focused on LLM systems, RAG architecture, and efficient model deployment.";
+  "Machine Learning Engineer with 4+ years building production AI systems in computer vision, NLP, and LLMs. At Honeywell, I cut cloud costs by 80% and sped up processing by 10x, work that's now a pending USPTO patent. I built a GPT-2 model from scratch in PyTorch and shipped a production RAG pipeline on AWS Bedrock. I like taking research ideas and turning them into systems that actually hold up in production.";
 
 const SKILLS = {
   languages: ["Python", "SQL"],
@@ -86,7 +87,7 @@ const PROJECTS = [
       "Implemented a hybrid retrieval layer combining ChromaDB (dense vector search) with BM25 (sparse keyword search), then fused results using Reciprocal Rank Fusion (RRF) — significantly improving recall on technical terminology and exact-match queries where pure semantic search fails.",
       "Added Multi-Query Retrieval to decompose complex multi-part questions into sub-queries, improving answer completeness on questions that span multiple document sections.",
       "Designed session memory with TTL-based caching (10-min expiry) to maintain conversation context across follow-up questions while automatically purging user data on session end.",
-      "GitHub: github.com/allurijairam/rag_lamda_app",
+      "github.com/allurijairam/rag_lamda_app · Live Demo",
     ],
     repoUrl: "https://github.com/allurijairam/rag_lamda_app",
   },
@@ -96,7 +97,7 @@ const PROJECTS = [
     points: [
       "Implemented the complete GPT-2 decoder-only architecture from scratch in PyTorch: Masked Multi-Head Self-Attention, Feed-Forward Networks, Sinusoidal Positional Encodings, Layer Normalization, and Residual Connections — no HuggingFace or external transformer libraries used.",
       "Built a character-level tokenizer from scratch and tuned training stability using Residual Connections and gradient clipping across deep transformer blocks.",
-      "Blog post: medium.com/@allurijairam/gpt-2-from-scratch-40efde46db2d",
+      "Technical write-up published on Medium: medium.com/@allurijairam/gpt-2-from-scratch",
     ],
     blogUrl: "https://medium.com/@allurijairam/gpt-2-from-scratch-40efde46db2d",
   },
@@ -107,7 +108,7 @@ const PROJECTS = [
       "Built a Seq2Seq Encoder-Decoder model with Attention and 1D-CNN layers for real-time sentence-level text correction, handling errors that traditional spell-checkers miss.",
       "Used FastText embeddings to improve generalization on rare and misspelled inputs compared to one-hot encoding baselines.",
       "Deployed full inference pipeline as a Flask web application with end-to-end real-time correction.",
-      "Blog post: medium.com/@allurijairam/sentence-correction-using-deep-learning-333a5ba6f89f",
+      "Technical write-up: medium.com/@allurijairam/sentence-correction-using-deep-learning",
     ],
     blogUrl: "https://medium.com/@allurijairam/sentence-correction-using-deep-learning-333a5ba6f89f",
   },
@@ -235,35 +236,31 @@ export default function Resume() {
                   <p className="resume-project-tech">{proj.tech}</p>
                 )}
                 <ul className="resume-list">
-                  {proj.points.map((point, j) => (
-                    <li key={j}>
-                      {point.startsWith("Blog post:") && proj.blogUrl ? (
-                        <>
-                          Blog post:{" "}
-                          <a
-                            href={proj.blogUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            {point.replace(/^Blog post:\s*/, "")}
+                  {proj.points.map((point, j) => {
+                    if (point.includes("Live Demo") && proj.repoUrl) {
+                      return (
+                        <li key={j}>
+                          <a href={proj.repoUrl} target="_blank" rel="noopener noreferrer">
+                            {point.split(" · ")[0]}
                           </a>
-                        </>
-                      ) : point.startsWith("GitHub:") && proj.repoUrl ? (
-                        <>
-                          GitHub:{" "}
-                          <a
-                            href={proj.repoUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            {point.replace(/^GitHub:\s*/, "")}
+                          {" · "}
+                          <Link to="/">Live Demo</Link>
+                        </li>
+                      );
+                    }
+                    if (point.includes("medium.com") && proj.blogUrl) {
+                      const idx = point.indexOf("medium.com");
+                      return (
+                        <li key={j}>
+                          {point.slice(0, idx)}
+                          <a href={proj.blogUrl} target="_blank" rel="noopener noreferrer">
+                            {point.slice(idx)}
                           </a>
-                        </>
-                      ) : (
-                        boldMetrics(point)
-                      )}
-                    </li>
-                  ))}
+                        </li>
+                      );
+                    }
+                    return <li key={j}>{boldMetrics(point)}</li>;
+                  })}
                 </ul>
               </div>
             ))}
