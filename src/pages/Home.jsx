@@ -4,6 +4,8 @@ import "./Home.css";
 const LINKEDIN_URL = "https://www.linkedin.com/in/jairam-alluri-23a624172/";
 const GITHUB_URL = "https://github.com/allurijairam/rag_lamda_app";
 const GPT2_MEDIUM_URL = "https://medium.com/@allurijairam/gpt-2-from-scratch-40efde46db2d";
+const RAG_EVAL_MEDIUM_URL =
+  "https://allurijairam.medium.com/building-a-baseline-rag-evaluation-framework-and-why-you-should-have-one-d05528e59cdb?postPublishedType=initial";
 
 const ABOUT_ME =
   "Machine Learning Engineer specializing in building end-to-end AI systems from research to production. I have experience designing large-scale computer vision models with custom architectures for unique datasets and developing large language model systems, including production-ready pipelines. Skilled in PyTorch, Transformers, and cloud infrastructure, I've built and deployed scalable ML solutions that process real-world data efficiently and reliably.";
@@ -84,6 +86,22 @@ export default function Home() {
             </p>
             <a
               href={GPT2_MEDIUM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary"
+            >
+              Blog Post on Medium
+            </a>
+          </div>
+          <div className="card project-blog-card">
+            <h3 className="project-blog-title">RAG Evaluation Baseline Framework</h3>
+            <p className="project-blog-desc">
+              Walked through how to build a baseline evaluation framework for RAG systems and why
+              having one is essential for measuring and improving retrieval-augmented LLM
+              pipelines.
+            </p>
+            <a
+              href={RAG_EVAL_MEDIUM_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary"
