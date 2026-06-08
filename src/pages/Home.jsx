@@ -8,7 +8,7 @@ const RAG_EVAL_MEDIUM_URL =
   "https://allurijairam.medium.com/building-a-baseline-rag-evaluation-framework-and-why-you-should-have-one-d05528e59cdb?postPublishedType=initial";
 
 const ABOUT_ME =
-  "Machine Learning Engineer specializing in building end-to-end AI systems from research to production. I have experience designing large-scale computer vision models with custom architectures for unique datasets and developing large language model systems, including production-ready pipelines. Skilled in PyTorch, Transformers, and cloud infrastructure, I've built and deployed scalable ML solutions that process real-world data efficiently and reliably.";
+  "I'm a Machine Learning Engineer with 4+ years of experience across computer vision, NLP, and LLMs. At Honeywell, I cut cloud costs by 80% and sped up processing by 10x, work that's now a pending USPTO patent. On the side, I built a GPT-2 model from scratch in PyTorch and shipped a production RAG pipeline on AWS Bedrock. What drives me is taking research ideas and turning them into systems that hold up in the real world.";
 
 const LIVE_DEMO_FEATURES = [
   "Multi-query & RAG fusion (custom implementation): I coded the system to automatically generate follow-up queries from the original question and retrieve/rank relevant documents using RAG fusion, producing more accurate, coherent, and context-aware answers.",
